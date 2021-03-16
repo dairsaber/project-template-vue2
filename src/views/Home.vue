@@ -7,12 +7,15 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
+import HelloWorld from "@/components/HelloWorld.vue"
+import { testSum } from "@/utils"
 export default {
   name: "Home",
   components: {
-    HelloWorld
-  }
-};
+    HelloWorld,
+  },
+  mounted() {
+    console.log(`test`, testSum(1, 3))
+  },
+}
 </script>
