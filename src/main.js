@@ -1,4 +1,5 @@
 import Vue from "vue"
+import Cookies from "js-cookie"
 
 import "normalize.css"
 import "element-ui/lib/theme-chalk/index.css"
@@ -10,14 +11,17 @@ import ElementUI from "element-ui"
 import App from "./App.vue"
 import router from "./router"
 import store from "./store"
-import { debugLogger } from "@/utils/debugLogger"
+import { debugLogger } from "@/utils/debug-logger"
 // svg icon
 import "@/icons"
-
 import "@/permission" // permission control
+import "./utils/error-log" // error log
 Vue.prototype.debugLogger = debugLogger
 
-Vue.use(ElementUI, { locale })
+Vue.use(ElementUI, {
+  size: Cookies.get("size") || "medium", // set element-ui default size
+  locale,
+})
 
 Vue.config.productionTip = false
 new Vue({
