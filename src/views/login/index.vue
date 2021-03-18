@@ -187,10 +187,16 @@ export default {
           this.loading = true
           try {
             await this.$store.dispatch("user/login", this.loginForm)
-            this.$router.push({
-              path: this.redirect || "/",
-              query: this.otherQuery,
-            })
+            this.$router
+              .push({
+                path: this.redirect || "/",
+                query: this.otherQuery,
+              })
+              .catch((error) => {
+                //https://github.com/vuejs/vue-router/issues/2881#issuecomment-520554378
+                //hack to fix that after logout  there is a error info when relogin
+                error
+              })
           } catch (error) {
             debugLogger(error)
           } finally {
