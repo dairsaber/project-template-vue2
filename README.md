@@ -1,5 +1,5 @@
 # project-template-vue2
-
+根据element-admin模板进行再次升级的个人项目后台模板, 相应的包已做升级和相应的代码改造
 ## Project setup
 ```
 yarn install
