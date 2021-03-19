@@ -25,27 +25,16 @@ export default {
   },
   methods: {
     click() {
-      if (!screenfull.enabled) {
-        this.$message({
-          message: "you browser can not work",
-          type: "warning",
-        })
-        return false
-      }
       screenfull.toggle()
     },
     change() {
       this.isFullscreen = screenfull.isFullscreen
     },
     init() {
-      if (screenfull.enabled) {
-        screenfull.on("change", this.change)
-      }
+      screenfull.on("change", this.change)
     },
     destroy() {
-      if (screenfull.enabled) {
-        screenfull.off("change", this.change)
-      }
+      screenfull.off("change", this.change)
     },
   },
 }

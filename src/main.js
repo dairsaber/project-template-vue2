@@ -16,6 +16,11 @@ import { debugLogger } from "@/utils/debug-logger"
 import "@/icons"
 import "@/permission" // permission control
 import "./utils/error-log" // error log
+
+// add fastclick to fix 300ms delay for mobile browser
+import FastClick from "fastclick"
+FastClick.attach(document.body)
+
 Vue.prototype.debugLogger = debugLogger
 
 Vue.use(ElementUI, {
